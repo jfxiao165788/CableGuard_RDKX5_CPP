@@ -1,0 +1,22 @@
+# CMake/ROS2 build trees are local, reproducible artifacts.
+/build*/
+/install/
+/log/
+/.cmake-
+**/CMakeFiles/
+**/Testing/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+
+# Python caches.
+*.pyc
+__pycache__/
+
+# Local benchmark output.
+benchmark_cpp.jpg
+benchmark_cpp.json
+benchmark_python.json

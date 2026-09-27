@@ -1,0 +1,17 @@
+# RDK X5 C++ detector parameters. The .bin model is supplied on the board.
+model_path: /home/sunrise/cable1/models/deployed/current.bin
+input_topic: /camera/image_raw
+result_topic: /detection/results
+annotated_topic: /detection/annotated_image
+mask_topic: /detection/cable_mask
+class_names: defect
+conf_thresh: 0.70
+nms_thresh: 0.45
+inference_interval: 3
+use_cable_mask: true
+pre_mask_for_yolo: true
+allow_synthetic_backend: false
+opencv_threads: 1
+# Keep the BPU process and camera callback on dedicated big cores. Adjust the
+# mask after checking the board's available CPU numbering with lscpu -e.
+cpu_affinity: "4,5,6,7"
