@@ -61,8 +61,9 @@ python3 python/benchmark_python.py --frames 120 --warmup 10 \
 Or run `scripts/run_benchmark.sh`. The benchmark uses the same deterministic
 synthetic 640x480 scene for both implementations. It measures CPU preprocessing,
 mask extraction, simulated coarse detection and ROI refinement. It does not
-claim to measure a real BPU `.bin` because the current PC has neither the model
-file nor `hobot_dnn`; the ROS2 board run uses the supplied BPU adapter.
+measure a real BPU `.bin` because the PC has neither the model file nor
+`hobot_dnn`; the X5-specific BPU adapter still needs to be implemented against
+the SDK installed on the target board.
 
 The local 120-frame run on this machine measured:
 
@@ -101,3 +102,9 @@ and must not be used for inspection deployment.
 - Keep `opencv_threads=1` when the BPU runtime already owns worker threads.
 - Use `cpu_affinity`/`taskset` to reserve a big-core cluster for the detector.
 - Build in `Release` so the compiler enables `-O3`, fast math and inlining.
+
+## License
+
+This C++ project is distributed separately under Apache License 2.0; see the
+[`LICENSE`](LICENSE) file in this directory. Third-party code and assets retain
+their own licenses or terms.
